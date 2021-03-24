@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import io from 'socket.io-client';
 
 import {shuffle} from "./utils/shuffle";
 import {cards} from "./assets/cardsLocation";
@@ -80,6 +81,33 @@ const App = () => {
         });
         setImagesList(uploadedImages);
     }, [requestImageFile]);
+
+    // useEffect(() => {
+    //
+    //     socket.on('message', (message) =>
+    //         console.log('Message from server: ', message)
+    //     )
+    //     socket.on('private message', (message) =>
+    //         console.log(
+    //             'Private message from server: ',
+    //             message
+    //         )
+    //     )
+    //
+    //     function sendMessageToServer() {
+    //         socket.emit('message', "I'm client")
+    //     }
+    //
+    //     sendMessageToServer()
+    // },[]);
+
+    useEffect(() => {
+        let socket = io.connect('http://127.0.0.1:4001', {transports: ['websocket']});
+        socket.on("FromAPI", data => {
+            console.log(data);
+        });
+
+    }, []);
 
     return (
         <div className="App">
