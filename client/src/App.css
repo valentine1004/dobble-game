@@ -1,38 +1,66 @@
 .App {
   text-align: center;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.playroom-wrapper{
+  background: no-repeat url("assets/fon.jpeg");
+  background-size: cover;
+  height: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.home-wrapper{
+  background: no-repeat url("assets/homepage_fon.jpg");
+  background-size: cover;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+}
+
+.form-wrapper{
+  width: 300px;
+  height: 330px;
+  border: 2px solid #b2a1a9;
+  border-radius: 25px;
+  background: #cac7ce;
+  font-family: Cursive;
+}
+
+.form-title{
+  font-weight: bold;
+  font-size: 44px;
+  margin: 10px;
+  color: lightcyan;
+}
+
+.input-field{
+  border: 1px solid lightcyan;
+  border-radius: 25px;
+  height: 40px;
+  width: 80%;
+  margin: 10px 0;
+  padding-left: 20px;
+  outline: none;
+}
+
+.start-game-wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.start-game-btn{
+  border: 1px solid lightcyan;
+  border-radius: 25px;
+  line-height: 80px;
+  width: 80%;
   color: white;
+  background: teal;
+  margin-top: 10px;
+  font-size: 35px;
+  cursor: pointer;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.start-game-btn:hover{
+  background: steelblue;
 }

@@ -1,11 +1,9 @@
 import React from "react";
 import styled from 'styled-components';
 
-import {randomInteger} from "../../utils/randomInteger";
-
 const Wrapper = styled.div`
   padding: 4em;
-  background: papayawhip;
+  background: #cac7ce;
   border-radius: 50%;
   height: 300px;
   width: 300px;
@@ -13,22 +11,31 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: stretch;
+  border: 3px solid #b2a1a9;
+  margin: 30px;
 `;
 
-const Card = ({imagesList, imageIndexes}) => {
+const ImageWrapper = styled.div`
+  cursor: pointer;
+`;
+
+const Card = ({imagesList, imageIndexes, handleChange}) => {
     return(
         <Wrapper>
             {
                 imageIndexes.map(id => {
                     return(
-                        <div key={id}>
+                        <ImageWrapper
+                            key={id}
+                            onClick={_ => handleChange ? handleChange(id) : null}
+                        >
                             <img
                                 alt={imagesList[id].name}
                                 src={imagesList[id].src}
-                                width={randomInteger(50, 110)}
-                                style={{transform: `rotate(${randomInteger(-90, 90)}deg)`}}
+                                width={imagesList[id].width}
+                                style={{transform: `rotate(${imagesList[id].rotation}deg)`}}
                             />
-                        </div>
+                        </ImageWrapper>
                     )
                 })
             }

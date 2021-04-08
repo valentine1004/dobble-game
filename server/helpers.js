@@ -1,4 +1,4 @@
-export const cards = [
+const cards = [
     [0, 1, 3, 13, 32, 36, 43, 52],
     [1, 2, 4, 14, 33, 37, 44, 53],
     [2, 3, 5, 15, 34, 38, 45, 54],
@@ -57,3 +57,12 @@ export const cards = [
     [55, 56, 1, 11, 30, 34, 41, 50],
     [56, 0, 2, 12, 31, 35, 42, 51]
 ];
+
+const shuffle = (array) => {
+    return array.sort(() => Math.random() - 0.5);
+}
+
+module.exports = {
+    cards,
+    shuffle
+};
