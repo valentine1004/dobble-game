@@ -101,7 +101,7 @@ const PlayRoom = ({roomId, userName}) => {
     return (
         <div className='playroom-wrapper'>
             {
-                imagesList.length !== 0 && cards.length !== 0 &&
+                imagesList.length !== 0 && cards.length !== 0 && myCards.length !== 0 &&
                 <div style={{display: 'flex', justifyContent: 'space-around'}}>
                     <div>
                         <PLayerNameWrapper>

@@ -17,7 +17,7 @@ const io = require('socket.io')(http, {
     }
 });
 
-const host = '192.168.1.4';
+const host = '192.168.1.2';
 const port = 4001;
 
 let clients = [];
@@ -54,12 +54,12 @@ io.on('connection', (socket) => {
         io.in(data.roomId).emit('game:over', data.message);
     });
 
-    socket.on('room:leave', ({roomId}) => {
-        socket.leave(roomId);
-        // rooms.get(roomId).get('users').set(socket.id, userName);
-        const users = [...rooms.get(roomId).get('users').values()];
-        console.log('users', users);
-    });
+    // socket.on('room:leave', ({roomId}) => {
+    //     socket.leave(roomId);
+    //     // rooms.get(roomId).get('users').set(socket.id, userName);
+    //     const users = [...rooms.get(roomId).get('users').values()];
+    //     console.log('users', users);
+    // });
 
     socket.on('disconnect', () => {
         clients.splice(clients.indexOf(socket.id), 1)
