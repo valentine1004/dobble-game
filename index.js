@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use(express.static(path.join(__dirname, 'client', 'build')))
 
-const http = require('http').createServer(index);
+const http = require('http').createServer(app);
 const io = require('socket.io')(http, {
     cors: {
         origin: '*',
