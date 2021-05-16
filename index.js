@@ -1,6 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
+const path = require('path');
 const app = express();
 
 const {cards, shuffle} = require('./helpers');
@@ -10,7 +12,9 @@ app.options('*', cors());
 
 app.use(bodyParser.json());
 
-const http = require('http').createServer(app);
+app.use(express.static(path.join(__dirname, 'client', 'build')))
+
+const http = require('http').createServer(index);
 const io = require('socket.io')(http, {
     cors: {
         origin: '*',
@@ -83,6 +87,12 @@ app.post('/rooms', (req, res) => {
     }
 });
 
-http.listen(port, host, () =>
-    console.log(`Server listens http://${host}:${port}`)
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+const PORT = process.env.PORT || 4001;
+
+http.listen(PORT, () =>
+    console.log(`Server listens on port ${PORT}`)
 )
