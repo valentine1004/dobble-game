@@ -1,1 +1,1 @@
-export const API_URL = 'https://double-game.herokuapp.com';
+export const API_URL = 'https://dobble-game-app.herokuapp.com';
