@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {useHistory} from 'react-router-dom';
 
 import socket from "../../utils/socket";
@@ -6,6 +6,10 @@ import {API_URL} from "../../consts";
 
 const Home = ({roomId, setRoomId, userName, setUserName}) => {
     let history = useHistory();
+
+    useEffect(() => {
+        console.log('env', process.env);
+    }, []);
 
     const startGame = async () => {
         if(roomId.trim() && userName.trim()){
